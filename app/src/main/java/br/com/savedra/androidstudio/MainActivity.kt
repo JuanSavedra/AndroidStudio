@@ -4,9 +4,10 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -15,24 +16,18 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableIntStateOf
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import br.com.savedra.androidstudio.ui.theme.AndroidStudioTheme
 
 class MainActivity : ComponentActivity() {
@@ -42,10 +37,10 @@ class MainActivity : ComponentActivity() {
         setContent {
             AndroidStudioTheme {
                 Surface(
-                    modifier = Modifier.fillMaxSize(),
+                    modifier = Modifier.fillMaxSize().padding(8.dp, 24.dp),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    AgeCounter()
+                    Layout()
                 }
             }
         }
@@ -53,45 +48,90 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun AgeCounter() {
-    val age = remember {
-        mutableIntStateOf(0)
-    }
-
+fun Layout() {
     Column(
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
+        modifier = Modifier.fillMaxSize()
     ) {
-        Text(
-            fontSize = 24.sp,
-            fontWeight = FontWeight.Bold,
-            color = Color(0xFFAD1F4E),
-            text = "Diga sua idade."
-        )
-        Spacer(modifier = Modifier.height(16.dp))
-        Text(
-            fontSize = 18.sp,
-            fontWeight = FontWeight.Bold,
-            text = "Sua idade é de: ${age.intValue} anos!"
-        )
-        Spacer(modifier = Modifier.height(16.dp))
-        Row {
+        Column(
+            modifier = Modifier.fillMaxWidth()
+        ) {
             Button(
-                onClick = { if (age.intValue > 0) age.intValue-- },
-                modifier = Modifier.size(72.dp),
-                shape = RoundedCornerShape(8.dp),
-                colors = ButtonDefaults.buttonColors(Color(0xFF3F51B5))
-            ) {
-                Text(text = "-", fontSize = 40.sp)
+                onClick = {},
+                modifier = Modifier.fillMaxWidth()
+            ) {}
+            Button(
+                onClick = {},
+                modifier = Modifier.fillMaxWidth()
+            ) {}
+            Button(
+                onClick = {},
+                modifier = Modifier.fillMaxWidth()
+            ) {}
+        }
+        Spacer(Modifier.height(8.dp))
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceBetween
+        ) {
+            Button(
+                onClick = {},
+                modifier = Modifier.size(108.dp, 48.dp),
+                colors = ButtonDefaults.buttonColors(Color(0xFFF44336))
+            ) {}
+            Button(
+                onClick = {},
+                modifier = Modifier.size(108.dp, 48.dp),
+                colors = ButtonDefaults.buttonColors(Color(0xFFF44336))
+            ) {}
+            Button(
+                onClick = {},
+                modifier = Modifier.size(108.dp, 48.dp),
+                colors = ButtonDefaults.buttonColors(Color(0xFFF44336))
+            ) {}
+        }
+        Spacer(Modifier.height(8.dp))
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceBetween
+        ) {
+            Column {
+                Button(
+                    onClick = {},
+                    modifier = Modifier.size(178.dp, 64.dp),
+                    colors = ButtonDefaults.buttonColors(Color(0xFF03A9F4))
+                ) {}
+                Spacer(Modifier.height(8.dp))
+                Button(
+                    onClick = {},
+                    modifier = Modifier.size(178.dp, 64.dp),
+                    colors = ButtonDefaults.buttonColors(Color(0xFF03A9F4))
+                ) {}
+                Spacer(Modifier.height(8.dp))
+                Button(
+                    onClick = {},
+                    modifier = Modifier.size(178.dp, 64.dp),
+                    colors = ButtonDefaults.buttonColors(Color(0xFF03A9F4))
+                ) {}
             }
-            Spacer(modifier = Modifier.width(32.dp))
-            Button(
-                onClick = { age.intValue++ },
-                modifier = Modifier.size(72.dp),
-                shape = RoundedCornerShape(8.dp),
-                colors = ButtonDefaults.buttonColors(Color(0xFF3F51B5))
-            ) {
-                Text(text = "+", fontSize = 40.sp)
+            Spacer(Modifier.width(12.dp))
+            Column {
+                Button(
+                    onClick = {},
+                    modifier = Modifier.size(178.dp, 64.dp),
+                    colors = ButtonDefaults.buttonColors(Color(0xFFFF9800))
+                ) {}
+                Spacer(Modifier.height(8.dp))
+                Button(
+                    onClick = {},
+                    modifier = Modifier.size(178.dp, 64.dp),
+                    colors = ButtonDefaults.buttonColors(Color(0xFFFF9800))
+                ) {}
+                Spacer(Modifier.height(8.dp))
+                Button(
+                    onClick = {},
+                    modifier = Modifier.size(178.dp, 64.dp),
+                    colors = ButtonDefaults.buttonColors(Color(0xFFFF9800))
+                ) {}
             }
         }
     }
