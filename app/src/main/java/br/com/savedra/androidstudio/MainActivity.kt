@@ -23,6 +23,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -52,7 +53,9 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun AgeCounter() {
-    var age = 0
+    var age = remember {
+        mutableStateOf(0)
+    }
 
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -68,12 +71,12 @@ fun AgeCounter() {
         Text(
             fontSize = 18.sp,
             fontWeight = FontWeight.Bold,
-            text = "Sua idade é de: ${age} anos!"
+            text = "Sua idade é de: ${age.value} anos!"
         )
         Spacer(modifier = Modifier.height(16.dp))
         Row {
             Button(
-                onClick = { age-- },
+                onClick = { age.value-- },
                 modifier = Modifier.size(72.dp),
                 shape = RoundedCornerShape(8.dp),
                 colors = ButtonDefaults.buttonColors(Color(0xFF3F51B5))
@@ -82,7 +85,7 @@ fun AgeCounter() {
             }
             Spacer(modifier = Modifier.width(32.dp))
             Button(
-                onClick = { age++ },
+                onClick = { age.value++ },
                 modifier = Modifier.size(72.dp),
                 shape = RoundedCornerShape(8.dp),
                 colors = ButtonDefaults.buttonColors(Color(0xFF3F51B5))
