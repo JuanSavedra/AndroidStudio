@@ -33,11 +33,10 @@ import br.com.savedra.androidstudio.ui.theme.AndroidStudioTheme
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContent {
             AndroidStudioTheme {
                 Surface(
-                    modifier = Modifier.fillMaxSize().padding(8.dp, 24.dp),
+                    modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
                     Layout()
