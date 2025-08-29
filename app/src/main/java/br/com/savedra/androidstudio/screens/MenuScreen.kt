@@ -21,10 +21,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import kotlin.coroutines.coroutineContext
 
 @Composable
-fun MenuScreen() {
+fun MenuScreen(navController: NavController) {
     Box(
         modifier = Modifier.fillMaxSize()
             .background(Color(0xFF2C4EC7))
@@ -42,7 +43,7 @@ fun MenuScreen() {
                 .align(Alignment.Center)
         ) {
             Button(
-                onClick = {},
+                onClick = { navController.navigate("profile/Savedra") },
                 colors = ButtonDefaults.buttonColors(Color.White),
                 modifier = Modifier.size(width = 200.dp, height = 48.dp),
             ) {
@@ -53,7 +54,7 @@ fun MenuScreen() {
             }
             Spacer(modifier = Modifier.height(16.dp))
             Button(
-                onClick = {},
+                onClick = { navController.navigate("orders") },
                 colors = ButtonDefaults.buttonColors(Color.White),
                 modifier = Modifier.size(width = 200.dp, height = 48.dp)
             ) {
@@ -65,7 +66,7 @@ fun MenuScreen() {
             }
             Spacer(modifier = Modifier.height(16.dp))
             Button(
-                onClick = {},
+                onClick = { navController.navigate("login") },
                 colors = ButtonDefaults.buttonColors(Color.White),
                 modifier = Modifier.size(width = 200.dp, height = 48.dp)
             ) {
@@ -77,10 +78,4 @@ fun MenuScreen() {
             }
         }
     }
-}
-
-@Preview
-@Composable
-fun PreviewMenuScreen() {
-    MenuScreen()
 }

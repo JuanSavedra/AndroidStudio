@@ -16,32 +16,30 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 
 @Composable
-fun ProfileScreen() {
+fun ProfileScreen(
+    navController: NavController,
+    name: String
+) {
     Box(
         modifier = Modifier.fillMaxSize()
             .background(Color(0xFF329F6B))
             .padding(32.dp)
     ) {
         Text(
-            text = "PERFIL",
+            text = "PERFIL - $name",
             fontSize = 24.sp,
             fontWeight = FontWeight.Bold,
             color = Color.White
         )
         Button(
-            onClick = {},
+            onClick = { navController.navigate("menu") },
             colors = ButtonDefaults.buttonColors(Color.White),
             modifier = Modifier.align(Alignment.Center)
         ) { 
             Text(text = "Voltar", fontSize = 20.sp, color = Color.Blue)
         }
     }
-}
-
-@Preview
-@Composable
-fun PreviewProfileScreen() {
-    ProfileScreen()
 }

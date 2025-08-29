@@ -20,9 +20,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 
 @Composable
-fun OrderScreen() {
+fun OrderScreen(navController: NavController) {
     Box(
         modifier = Modifier.fillMaxSize()
             .background(Color(0xFFAFA9A9))
@@ -64,7 +65,7 @@ fun OrderScreen() {
             }
         }
         Button(
-            onClick = {},
+            onClick = { navController.navigate("menu") },
             colors = ButtonDefaults.buttonColors(Color.White),
             modifier = Modifier.align(Alignment.Center)
         ) {
@@ -75,10 +76,4 @@ fun OrderScreen() {
             )
         }
     }
-}
-
-@Preview
-@Composable
-fun PreviewOrderScreen() {
-    OrderScreen()
 }
