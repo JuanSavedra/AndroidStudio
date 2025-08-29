@@ -1,6 +1,5 @@
 package br.com.savedra.androidstudio
 
-
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
