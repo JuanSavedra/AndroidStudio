@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -37,9 +38,24 @@ class MainActivity : ComponentActivity() {
                         composable(route = "menu") {
                             MenuScreen(navController)
                         }
-                        composable(route = "profile/{name}") {
+                        composable(
+                            route = "profile/{name}/{age}",
+                            arguments = listOf(
+                                navArgument(name = "name") {
+                                    type = NavType.StringType
+                                },
+                                navArgument(name = "age") {
+                                    type = NavType.IntType
+                                }
+                            )
+                        ) {
                             val name = it.arguments?.getString("name")
-                            ProfileScreen(navController, name!!) //Double bang
+                            val age = it.arguments?.getInt("age")
+                            ProfileScreen(
+                                navController,
+                                name!!,
+                                age!!
+                            ) //Double bang
                         }
                         composable(
                             route = "orders?ordersQuantity={ordersQuantity}",
